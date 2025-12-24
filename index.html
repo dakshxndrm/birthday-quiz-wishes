@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-page">
+
+  <div id="sparkles-container"></div>
+
+  <div class="main-container fade-in">
+    
+    <h1 class="main-title">Happy Birthday! 👑</h1>
+    <p class="subtitle">To the most amazing person...</p>
+
+    <div class="hero-img-wrapper">
+      <div class="glowing-ring"></div>
+      <img src="assets/her-image.png" alt="Birthday Girl" class="hero-img" onerror="this.src='https://via.placeholder.com/200/ff9a9e/fff?text=Princess'">
+    </div>
+
+    <div class="intro-box glass">
+      <p>
+        Today is all about <b>YOU</b>! ✨<br>
+        We have collected some special wishes and a little game for you.
+        Are you ready to unlock your surprise?
+      </p>
+    </div>
+
+    <a href="quiz.html" class="start-btn">
+      Start the Party! 🎈
+    </a>
+
+  </div>
+
+  <script>
+    // Simple script to generate falling sparkles
+    const sparkleContainer = document.getElementById('sparkles-container');
+    const sparkleCount = 50; // Number of sparkles
+
+    for (let i = 0; i < sparkleCount; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      
+      // Random positioning and animation duration
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's'; // 2s to 5s
+      sparkle.style.animationDelay = Math.random() * 5 + 's';
+      
+      // Random size
+      const size = Math.random() * 5 + 2 + 'px';
+      sparkle.style.width = size;
+      sparkle.style.height = size;
+      
+      sparkleContainer.appendChild(sparkle);
+    }
+  </script>
+
+</body>
+</html>

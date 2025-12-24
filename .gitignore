@@ -1,0 +1,12 @@
+# Ignore personal images
+assets/her-image.png
+assets/her-default.png
+assets/her-happy.png
+assets/her-wrong.png
+
+# Ignore personal audio (optional, if you want)
+aud.mp3
+
+# Ignore system files (good practice)
+.DS_Store
+Thumbs.db
