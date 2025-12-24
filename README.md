@@ -1,50 +1,60 @@
-# Birthday Quiz Wishes 🎂🎉
+# Birthday Quiz Wishes 🎂
 
-A fun and interactive web-based birthday surprise application! This project creates a personalized experience where the birthday person takes a quiz about themselves (or your friendship/relationship) to unlock a final birthday wish or surprise message.
+A personalized web application designed to surprise a friend or partner on their birthday. The user must pass a quiz about your relationship or their personal favorites to unlock a final surprise message.
 
-## ✨ Features
+## ⚙️ How It Works (The Logic)
 
-* **Interactive Start Screen**: A welcoming landing page (`index.html`) to begin the experience.
-* **Fun Quiz Section**: A JavaScript-powered quiz (`quiz.html`) that checks answers before allowing the user to proceed.
-* **Celebratory Finale**: A dedicated final page (`final.html`) to display your heartfelt birthday message, images, or a gift reveal.
-* **Responsive Design**: Styled with CSS to look good on both desktop and mobile devices.
+This application follows a strict 3-step validation flow:
+
+1.  **The Entry (`index.html`)**:
+    * The user is greeted with a welcome screen and a "Start" button.
+    * Clicking the button navigates the user to the `quiz.html` page.
+
+2.  **The Gatekeeper (`quiz.html` & `script.js`)**:
+    * This is the core logic layer. The user is presented with a series of input fields (questions).
+    * When the user clicks "Submit", the **`script.js`** file triggers.
+    * **Validation**: The script grabs the values from the input fields and compares them against hardcoded "correct" answers inside the JavaScript code.
+    * **Conditionals**:
+        * **If Correct**: The script executes a redirect command (`window.location.href`) to send the browser to `final.html`.
+        * **If Incorrect**: The script prevents navigation and alerts the user to try again.
+
+3.  **The Reward (`final.html`)**:
+    * This page is only accessible (intended flow) after passing the quiz.
+    * It contains the birthday wish, animations, and the photos (`img.png`, `img2.png`).
 
 ## 📂 Project Structure
 
-* `index.html`: The main entry point/welcome screen.
-* `quiz.html`: The page containing the quiz questions and logic.
-* `final.html`: The destination page after completing the quiz.
-* `script.js`: Handles the quiz logic (validating answers, navigation).
-* `style.css`: Contains the styling and animations for all pages.
-* `img.png` / `img2.png`: Images used for the background or decoration.
+* `index.html` - The landing page.
+* `quiz.html` - The interface containing the questions form.
+* `final.html` - The celebration page (hidden until the quiz is solved).
+* `script.js` - Contains the answer keys and validation logic.
+* `style.css` - Handles the visual design, colors, and layout.
 
-## 🚀 How to Run
+## 🚀 Usage & Customization
 
-1.  **Clone or Download** this repository to your local machine.
-    ```bash
-    git clone [https://github.com/dakshxndrm/birthday-quiz-wishes.git](https://github.com/dakshxndrm/birthday-quiz-wishes.git)
+### 1. Run Locally
+Simply double-click `index.html` to open the project in your web browser. No server installation is required.
+
+### 2. Changing the Passwords/Answers
+To make this quiz work for *your* specific person, you must update the answer logic:
+
+1.  Open **`script.js`** in a text editor.
+2.  Look for the `if` statement checking the values. It will look something like this:
+    ```javascript
+    if (answer1.value == "their_answer" && answer2.value == "another_answer") {
+        // Redirects to final.html
+    }
     ```
-2.  **Open the Application**:
-    * Navigate to the folder where you saved the files.
-    * Double-click on `index.html` to open it in your web browser (Chrome, Firefox, Safari, etc.).
+3.  Replace the strings inside the quotes with the correct answers you want them to type.
 
-## 🛠️ How to Customize
+### 3. Changing Images
+* Replace **`img.png`** and **`img2.png`** in the root folder with your own photos.
+* Ensure your new files have the exact same names, or update the `src` attributes in `final.html`.
 
-Want to use this for your friend or partner? Here is how you can personalize it:
-
-1.  **Change the Text**: Open `index.html` and `final.html` in a text editor (like VS Code or Notepad) and replace the text with your own wishes.
-2.  **Update Questions**: Open `quiz.html` (or `script.js`, depending on where the questions are stored) to change the quiz questions and correct answers.
-3.  **Swap Images**: Replace `img.png` and `img2.png` with photos of the birthday person. Make sure to keep the filenames the same or update the references in the HTML/CSS code.
-
-## 💻 Technologies Used
-
-* **HTML5**
-* **CSS3**
-* **JavaScript**
-
-## 🤝 Contributing
-
-Feel free to fork this repository and improve the design or add new features like animations, music, or more complex quiz logic!
+## 🛠️ Tech Stack
+* **HTML5**: Page structure.
+* **CSS3**: Styling and responsive layout.
+* **JavaScript (DOM)**: Form validation and page routing.
 
 ---
-*Created with ❤️ for a special birthday.*
+*Fork this repository to create your own birthday surprise!*
